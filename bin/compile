@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+build_dir, cache_dir = ARGV
+mutt_tar  = File.expand_path(File.join(File.dirname(__FILE__), '../vendor/mutt-1.5.21.tgz'))
+mutt_dir  = "#{build_dir}/mutt"
+FileUtils.mkdir(mutt_dir)
+Dir.chdir(mutt_dir) do |file|
+  system("tar zxf #{mutt_tar}")
+end
